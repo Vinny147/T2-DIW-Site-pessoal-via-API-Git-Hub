@@ -3,7 +3,7 @@ window.onload = () => {
 }
 
 const domain = 'https://api.github.com';
-const user = '/users/vinny147';
+const user = 'Vinny147';
 
 function loadPage() {
     let xhrUser = new XMLHttpRequest();
@@ -42,7 +42,7 @@ function loadPage() {
         document.getElementById('profile').innerHTML = htmlProfile; // adiciona os elementos com as informações recebidas da api no html
         document.getElementsByTagName('title')[0].innerHTML = userData.name; // muda o titulo da pagina para o nome real do usuário do github
     }
-    xhrUser.open ('GET', domain + user);
+    xhrUser.open ('GET', domain + '/users/' + user);
     xhrUser.send ();
 
     let xhrRepos = new XMLHttpRequest();
@@ -89,7 +89,7 @@ function loadPage() {
                                 
         document.getElementById('topRepos').children[1].innerHTML = htmlTopRepos; // adiciona os elementos com as informações recebidas da api no html
     }
-    xhrRepos.open ('GET', domain + user + '/repos');
+    xhrRepos.open ('GET', domain + '/users/' + user + '/repos');
     xhrRepos.send ();
 }
 
@@ -104,7 +104,7 @@ function loadSearch() {
     }
     // apaga os valores da variável coletados da barra de pesquisa para que não haja palavras-chave na query string e então a requisição busque por todos os repositórios do usuário
     if ( this.id === 'showAllBtn') inputFieldValue = '';
-    const searchedRepos = `/search/repositories?q=${inputFieldValue}user:Vinny147`;
+    const searchedRepos = `/search/repositories?q=${inputFieldValue}user:${user}`;
     document.getElementById('searchField').value = ''; // limpa o campo da barra de pesquisa
     let xhrSearchedRepos = new XMLHttpRequest();
     xhrSearchedRepos.onload = function () {

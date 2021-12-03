@@ -1,0 +1,384 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+
+*{
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #c9d1d9;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#screen {
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+}
+
+main {
+    width: 100%;
+    height: auto;
+    background-color: #0d1117;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+}
+
+#footer {
+    background-color: #212529;
+    min-height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#footer h6 {
+    margin: 0;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+  
+::-webkit-scrollbar-track {
+    background: #191e25; 
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 5px; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #8b949e; 
+}
+
+#profile {
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 50px 0;
+}
+
+#profile a {
+    display: flex;
+    text-decoration: none;
+    color: #c9d1d9;
+}
+
+#profile a:hover p {
+    color: #4b93db;
+}
+
+#profile a .bi {
+    margin-left: 5px;
+}
+
+#profile #location {
+    display: flex;
+}
+
+#profile #location .bi {
+    margin-left: 5px;
+}
+
+#profileContent {
+    width: 800px;
+}
+
+#name, #userName { 
+    margin-left: 5px;
+}
+
+#userName {
+    font-weight: 200;
+    color: #8b949e;
+}
+
+#profileImg {
+    width: 250px;
+    height: 250px;
+    border-radius: 3px;
+    margin-right: 20px;
+}
+
+#status {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 350px;
+    margin: 10px 0;
+}
+
+#profileContent p {
+    margin-bottom: 0;
+}
+
+#bio {
+    margin-left: 5px;
+}
+
+#profile a {
+    width: fit-content;
+}
+
+#profile i {
+    margin-right: 5px;
+}
+
+a:hover #name {
+    color: #4b93db;
+}
+
+#status * {
+    margin: 0 2.5px;
+}
+
+#status a {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#status a p {
+    color: #c9d1d9;
+}
+
+#status a:hover p {
+    color: #4b93db;
+}
+
+#status a:hover i{
+    color: #4b93db;
+}
+
+#status a:hover h6{
+    color: #4b93db;
+}
+
+#status a i, #status a h6 {
+    color: #8b949e;
+} 
+
+#status .bi-dot {
+    font-size: 12px;
+    color: #8b949e;
+}
+
+#topRepos {
+    width: 80%;
+     margin-bottom: 40px;
+
+}
+
+#reposContainer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.title {
+    margin-bottom: 50px;
+}
+
+.card {
+    margin: 10px !important;
+}
+
+.repo-link {
+    text-decoration: none;
+}
+
+.repo-link:hover h5 {
+    color: #4b93db;
+}
+
+#searchRepos {
+    width: 80%;
+}
+
+.input-area {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-control {
+    background-color: #212529;
+    border: 0;
+    color: #c9d1d9;
+}
+
+.form-control:focus {
+    background-color: #212529;
+    border: 0;
+    color: #c9d1d9;
+}
+
+.btn {
+    color: #eee;
+    background-color: #4b93db;
+    margin-left: 4px;
+    min-width: fit-content;
+}
+
+.btn:focus {
+    background-color: #3f678f;
+}
+
+#searchedReposContainer {
+    width: 80%;
+    min-height: 300px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 45px 0;
+}
+
+.msg {
+    text-align: center;
+}
+
+@media screen and (max-width: 940px) {
+    #topRepos {
+        width: 95%;
+    }
+
+    #reposContainer {
+        justify-content: center;
+    }
+
+    #searchRepos {
+        width: 95%;
+    }
+
+    #searchedReposContainer {
+        width: 95%;
+    }
+
+    .input-area {
+        width: 95%;
+    }
+}
+
+@media screen and (max-width: 750px) {
+
+    #reposContainer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #searchedReposContainer {
+        width: 100%;
+    }
+
+    .input-area {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .btn {
+        margin: 10px 0 0 0;
+    }
+
+    #searchBtn {
+        margin-right: 10px;
+    }
+    
+    .title {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 660px) {
+    
+    #profile {
+        height: auto;
+        flex-direction: column;
+        width: 90%;
+    }
+
+    #profileContent {
+        width: 100%;
+    }
+
+    #profileImg {
+        margin: 0;
+        margin-bottom: 25px;
+    }
+
+    #name, #userName, #status, a, #location {
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #status {
+        flex-wrap: wrap;
+    }
+
+    #bio {
+        text-align: justify;
+    }
+
+}
+
+@media screen and (max-width: 420px) {
+    
+    #profile {
+        width: 98%;
+    }
+
+    #footer h6 {
+        margin: 2px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+
+    #profileContent > a p {
+        font-size: 12px;
+    }
+    
+    #topRepos {
+        width: 100%;
+    }
+
+    .card {
+        width: auto !important;
+        height: auto !important;
+        margin: 10px 0;
+    }
+
+    .input-area {
+        width: 100%;
+        margin: 0;
+        justify-content: space-evenly;
+    }
+
+    #searchBtn {
+        margin-right: 0;
+    }
+
+    #searchedReposContainer .card {
+        margin: 10px 0 !important;
+    }
+
+    .card-body {
+        padding: 4px;
+    }
+}
+

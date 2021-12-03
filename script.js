@@ -48,39 +48,42 @@ function loadPage() {
     let xhrRepos = new XMLHttpRequest();
     xhrRepos.onload = function () { // coloca 3 repositórios em destaque
         let reposData = JSON.parse(this.responseText);
-        let aux = [], year = [], month = [], day = [], date = []; // variáveis para criar um formato de data compreensível
+        let aux = [], year = [], month = [], day = [], date = [], index = []; // variáveis para criar um formato de data compreensível
         for(let i = 0; i < reposData.length; i++) {
             aux[i] = new Date(reposData[i].updated_at).toString(); // converte data para o formato padrão do js
             year[i] = reposData[i].updated_at.substr(0, 4); // pega a parte da string que corresponde ao ano
             month[i] = reposData[i].updated_at.substr(5, 2); // pega a parte da string que corresponde ao mes
             day[i] = aux[i].substr(8, 2); // pega a parte da string que corresponde ao dia
             date[i] = day[i] + '/' + month[i] + '/' + year[i]; // transforma a data em um formato apropriado
+            if (reposData[i].name.includes('CRUD')) index[0] = i;
+            else if (reposData[i].name.includes('T2-DIW')) index[1] = i;
+            else if (reposData[i].name.includes('SPRINT-2')) index[2] = i;
         } // pega os dados dos repositórios escolhidos na api e coloca nos elementos html
         let htmlTopRepos = `<div class="card text-white text-center bg-dark mb-3" style="width: 18rem;">
                                 <div class="card-body">
-                                    <a class="repo-link" target="_blank" href="${reposData[2].html_url}">
-                                        <h5 class="card-title">${reposData[2].name}</h5>
+                                    <a class="repo-link" target="_blank" href="${reposData[index[0]].html_url}">
+                                        <h5 class="card-title">${reposData[index[0]].name}</h5>
                                     </a>
-                                    <p class="card-text">${reposData[2].description}</p>
-                                    <p class="card-text"><small class="text-muted">Atualizado em: ${date[2]}</small></p>
+                                    <p class="card-text">${reposData[index[0]].description}</p>
+                                    <p class="card-text"><small class="text-muted">Atualizado em: ${date[index[0]]}</small></p>
                                 </div>
                             </div>
                             <div class="card text-white text-center bg-dark mb-3" style="width: 18rem;">
                                 <div class="card-body">
-                                    <a class="repo-link" target="_blank" href="${reposData[4].html_url}">
-                                        <h5 class="card-title">${reposData[4].name}</h5>
+                                    <a class="repo-link" target="_blank" href="${reposData[index[1]].html_url}">
+                                        <h5 class="card-title">${reposData[index[1]].name}</h5>
                                     </a>
-                                    <p class="card-text">${reposData[4].description}</p>
-                                    <p class="card-text"><small class="text-muted">Atualizado em: ${date[4]}</small></p>
+                                    <p class="card-text">${reposData[index[1]].description}</p>
+                                    <p class="card-text"><small class="text-muted">Atualizado em: ${date[index[1]]}</small></p>
                                 </div>
                             </div>
                             <div class="card text-white text-center bg-dark mb-3" style="width: 18rem;">
                                 <div class="card-body">
-                                    <a class="repo-link" target="_blank" href="${reposData[3].html_url}">
-                                        <h5 class="card-title">${reposData[3].name}</h5>
+                                    <a class="repo-link" target="_blank" href="${reposData[index[2]].html_url}">
+                                        <h5 class="card-title">${reposData[index[2]].name}</h5>
                                     </a>
-                                    <p class="card-text">${reposData[3].description}</p>
-                                    <p class="card-text"><small class="text-muted">Atualizado em: ${date[3]}</small></p>
+                                    <p class="card-text">${reposData[index[2]].description}</p>
+                                    <p class="card-text"><small class="text-muted">Atualizado em: ${date[index[2]]}</small></p>
                                 </div>
                             </div>`;
                                 
